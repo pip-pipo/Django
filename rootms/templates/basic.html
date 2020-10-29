@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static './css/bootstrap.min.css'%}" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="text-center text-info display-5 bg-dark rounded">
+        function based view modelform curd
+      </h2>
+    
+      {% block content %} {% endblock content %}
+    </div>
+
+    <script src="{% static './js/jquery-3.5.1.min.js'%}"></script>
+  </body>
+</html>

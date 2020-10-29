@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+ {% block title %} ADD & SHOW 🐬🟠❌⭕ {% endblock title %} {% block bodycontent %}
+
+<div class="form w-25 m-auto">
+  <h3 class="my-5 bg-success p-2 text-center text-light">Add Student</h3>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <!-- <div class="form-group">
+                <label for="username">Enter Username</label>
+                <input type="text" name="name" class="form-control" id="uname" placeholder="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Enter Email address</label>
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="password">Enter  Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Phone Number">
+            </div>
+           -->
+    {{form.as_p}}
+
+    <button
+      type="submit"
+      name="submit"
+      class="my-5 btn-submit w-100 btn btn-success text-light"
+    >
+      ADD
+    </button>
+  </form>
+</div>
+<div class="m-auto col-sm-8">
+  <h4 class="text-center text-light bg-success border-dark alert alert-info">
+    show student data
+  </h4>
+  {%if stu %}
+  <table class="col-12">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">PASSWORD</th>
+        <th scope="col">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for st in stu %}
+      <tr>
+        <th scope="row">{{st.id}}</th>
+        <td>{{st.name}}</td>
+        <td>{{st.email}}</td>
+        <td>{{st.password}}</td>
+        <td>
+          <a href="#" class="btn btn-warning">Edit</a>
+          <form class=" d-inline" action="{% url 'delete_data ' st.id %}" method="POST">
+              {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="delete" />
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% else %}
+  <h4>no rcoreds</h4>
+  {% endif %}
+</div>
+{% endblock bodycontent %}

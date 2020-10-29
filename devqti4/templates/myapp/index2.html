@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=" {% static  "css/style.css"  %} ">
+</head>
+
+<body>
+    <!-- <h1 class="text" id="text_text">  name is   {%if name %}
+                                                {{name}}
+                                                {% else %}
+                                                undefine
+                                                {%endif%}
+        
+        and  email is    {{email}}  my password {{pwd}} date is {{d|time:'TIME_FORMAT'}} the floatformart used in {{int|floatformat:0}}</h1> -->
+
+
+    <ul>
+
+        {% for key , value in student.items %}
+        
+        <hr>
+        {{key}} <br>
+        <br>
+        <hr>
+        
+        {% for k , v in value.items%}
+        {{k}} = {{v}} <br>
+        {% endfor %}
+        {% endfor %}
+
+    </ul>
+
+
+
+
+
+    <button class="btn_cls" id="btn_click" type="submit">Click Me</button>
+    <script src="{%static  "js/app.js" %}"></script>
+</body>
+
+</html>
